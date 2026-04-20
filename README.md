@@ -17,10 +17,16 @@ This project builds an end-to-end data pipeline that ingests 239,664 Steam appli
 ## 🏗️ Architecture
 
 ```
-Kaggle (CSV) → Airflow (DAG) → GCS (Parquet) → BigQuery (dbt mart) → Data Studio (Dashboard)
-                                                       ↑
-                                                 Terraform (IaC)
----
+┌──────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌──────────────┐
+│  Kaggle  │────▶│   Airflow   │────▶│     GCS     │────▶│  BigQuery   │────▶│  Data Studio │
+│  (CSV)   │     │    (DAG)    │     │  (Parquet)  │     │  (dbt mart) │     │ (Dashboard)  │
+└──────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └──────────────┘
+                                                                │
+                                                           ┌────▼────┐
+                                                           │Terraform│
+                                                           │  (IaC)  │
+                                                           └─────────┘
+```
 
 ---
 ## 🛠️ Technologies
