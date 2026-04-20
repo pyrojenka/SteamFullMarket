@@ -74,7 +74,7 @@ SteamFullMarket/
 │   │       └── mart_publisher_stats.sql
 │   ├── dbt_project.yml
 │   └── profiles.yml.example
-├── docs/docs/images/
+├── docs/images/
 ├── requirements.txt
 └── README.md
 ```
@@ -83,13 +83,13 @@ SteamFullMarket/
 
 ## 📊 Dashboard
 
-**[View Live Dashboard](https://datastudio.google.com/s/mdTqajFnprY)**
+**[View Live Dashboard](https://datastudio.google.com/s/tVHye6K6NAQ)**
 
 ### Page 1 — Steam Platform Evolution
-![Dashboard Page 1](docs/docs/images/1_dashboard.png)
+![Dashboard Page 1](docs/images/1_dashboard.png)
 
 ### Page 2 — Genre Analysis
-![Dashboard Page 2](docs/docs/images/2_dashboard.png)
+![Dashboard Page 2](docs/images/2_dashboard.png)
 
 The dashboard includes:
 - **Steam Games Released Per Year (2003–2025)** — temporal analysis with key platform milestones annotated (Greenlight, Early Access, Moderation tightened, AI Tools)
