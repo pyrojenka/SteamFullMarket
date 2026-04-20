@@ -17,9 +17,16 @@ This project builds an end-to-end data pipeline that ingests 239,664 Steam appli
 ## 🏗️ Architecture
 
 ```
-Kaggle (CSV) → Airflow (DAG) → GCS (Parquet) → BigQuery (dbt mart) → Data Studio (Dashboard)
-                                                       ↑
-                                                 Terraform (IaC)
+┌──────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌──────────────┐
+│  Kaggle  │────▶│   Airflow   │────▶│     GCS     │────▶│  BigQuery   │────▶│  Data Studio │
+│  (CSV)   │     │    (DAG)    │     │  (Parquet)  │     │  (dbt mart) │     │ (Dashboard)  │
+└──────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └──────────────┘
+                                                                │
+                                                           ┌────▼────┐
+                                                           │Terraform│
+                                                           │  (IaC)  │
+                                                           └─────────┘
+```
 
 ---
 ## 🛠️ Technologies
@@ -69,7 +76,7 @@ SteamFullMarket/
 │   │       └── mart_publisher_stats.sql
 │   ├── dbt_project.yml
 │   └── profiles.yml.example
-├── docs/docs/images/
+├── docs/images/
 ├── requirements.txt
 └── README.md
 ```
@@ -81,10 +88,10 @@ SteamFullMarket/
 **[View Live Dashboard](https://datastudio.google.com/s/mdTqajFnprY)**
 
 ### Page 1 — Steam Platform Evolution
-![Dashboard Page 1](docs/docs/images/1_dashboard.png)
+![Dashboard Page 1](docs/images/1_dashboard.png)
 
 ### Page 2 — Genre Analysis
-![Dashboard Page 2](docs/docs/images/2_dashboard.png)
+![Dashboard Page 2](docs/images/2_dashboard.png)
 
 The dashboard includes:
 - **Steam Games Released Per Year (2003–2025)** — temporal analysis with key platform milestones annotated (Greenlight, Early Access, Moderation tightened, AI Tools)
