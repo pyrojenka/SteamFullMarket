@@ -2,8 +2,6 @@
 
 An end-to-end data engineering pipeline that ingests, transforms, and visualizes 22 years of Steam gaming marketplace data (2003–2025).
 
-![Dashboard](docs/images/1_dashboard.png)
-
 ---
 
 ## 📋 Problem Statement
