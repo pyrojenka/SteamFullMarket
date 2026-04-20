@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_applications
+    description: "Cleaned Steam applications data - games only (2003-2025)"
+    columns:
+      - name: appid
+        description: "Unique Steam application ID"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+      - name: type
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: warn
+              arguments:
+                values: [ "game" ]
+      - name: release_year
+        tests:
+          - not_null
+
+  - name: stg_genres
+    description: "Steam genre lookup table"
+    columns:
+      - name: genre_id
+        tests:
+          - unique
+          - not_null
+      - name: genre_description
+        tests:
+          - not_null
+
+  - name: stg_application_genres
+    description: "Junction table linking apps to genres"
+    columns:
+      - name: appid
+        tests:
+          - not_null
+      - name: genre_id
+        tests:
+          - not_null

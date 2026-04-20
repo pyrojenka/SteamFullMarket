@@ -1,0 +1,12 @@
+steam_fullmarket:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: YOUR_GCP_PROJECT_ID
+      dataset: steam_fullmarket
+      location: US
+      keyfile: /path/to/your/gcp-service-account.json
+      threads: 4
+      timeout_seconds: 300

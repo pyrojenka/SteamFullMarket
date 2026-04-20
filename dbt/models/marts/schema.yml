@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: mart_releases_over_time
+    description: "Steam games released per year with pricing and free-to-play stats"
+    columns:
+      - name: release_year
+        description: "Year of release"
+        tests:
+          - unique
+          - not_null
+      - name: total_games
+        tests:
+          - not_null
+      - name: free_games
+        tests:
+          - not_null
+      - name: paid_games
+        tests:
+          - not_null
+
+  - name: mart_genre_distribution
+    description: "Genre distribution with free vs paid breakdown"
+    columns:
+      - name: genre_description
+        tests:
+          - unique
+          - not_null
+      - name: total_games
+        tests:
+          - not_null
+
+  - name: mart_genre_trends
+    description: "Genre trends over time"
+    columns:
+      - name: genre_description
+        tests:
+          - not_null
+      - name: release_year
+        tests:
+          - not_null
+      - name: total_games
+        tests:
+          - not_null
+
+  - name: mart_publisher_stats
+    description: "Publisher statistics with pricing and portfolio metrics"
+    columns:
+      - name: publisher_name
+        tests:
+          - unique
+          - not_null
+      - name: total_games
+        tests:
+          - not_null
