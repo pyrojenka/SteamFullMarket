@@ -2,7 +2,7 @@
 
 An end-to-end data engineering pipeline that ingests, transforms, and visualizes 22 years of Steam gaming marketplace data (2003–2025).
 
-![Dashboard](docs/images/dashboard_page1.png)
+![Dashboard](docs/images/1_dashboard.png)
 
 ---
 
@@ -22,6 +22,7 @@ Kaggle (CSV) → Airflow (DAG) → GCS (Parquet) → BigQuery (dbt mart) → Dat
                                                  Terraform (IaC)
 ---
 
+---
 ## 🛠️ Technologies
 
 | Component | Technology |
@@ -81,10 +82,10 @@ SteamFullMarket/
 **[View Live Dashboard](https://datastudio.google.com/s/mdTqajFnprY)**
 
 ### Page 1 — Steam Platform Evolution
-![Dashboard Page 1](docs/docs/images/dashboard_page1.png)
+![Dashboard Page 1](docs/docs/images/1_dashboard.png)
 
 ### Page 2 — Genre Analysis
-![Dashboard Page 2](docs/docs/images/dashboard_page2.png)
+![Dashboard Page 2](docs/docs/images/2_dashboard.png)
 
 The dashboard includes:
 - **Steam Games Released Per Year (2003–2025)** — temporal analysis with key platform milestones annotated (Greenlight, Early Access, Moderation tightened, AI Tools)
@@ -118,7 +119,7 @@ Raw data is cleaned and filtered at the staging layer — only `type = 'game'` r
 
 ### dbt Lineage Graph
 
-![dbt Lineage](docs/images/dbt_lineage.png)
+![dbt Lineage](docs/images/dbt.png)
 
 ---
 
@@ -148,7 +149,7 @@ Raw data is cleaned and filtered at the staging layer — only `type = 'game'` r
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SteamFullMarket.git
+git clone https://github.com/pyrojenka/SteamFullMarket.git
 cd SteamFullMarket
 ```
 
