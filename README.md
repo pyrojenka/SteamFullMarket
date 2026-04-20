@@ -85,7 +85,7 @@ SteamFullMarket/
 
 ## 📊 Dashboard
 
-**[View Live Dashboard](https://datastudio.google.com/s/mdTqajFnprY)**
+**[View Live Dashboard](https://datastudio.google.com/s/tVHye6K6NAQ)**
 
 ### Page 1 — Steam Platform Evolution
 ![Dashboard Page 1](docs/images/1_dashboard.png)
