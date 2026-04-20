@@ -15,15 +15,9 @@ This project builds an end-to-end data pipeline that ingests 239,664 Steam appli
 ## 🏗️ Architecture
 
 ```
-┌──────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌──────────────┐
-│  Kaggle  │────▶│   Airflow   │────▶│     GCS     │────▶│  BigQuery   │────▶│  Data Studio │
-│  (CSV)   │     │    (DAG)    │     │  (Parquet)  │     │  (dbt mart) │     │ (Dashboard)  │
-└──────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └──────────────┘
-                                                                │
-                                                           ┌────▼────┐
-                                                           │Terraform│
-                                                           │  (IaC)  │
-                                                           └─────────┘
+Terraform provisions GCS bucket and BigQuery dataset before the pipeline runs.
+
+Kaggle (CSV) → Airflow (DAG) → GCS (Parquet) → BigQuery (dbt mart) → Data Studio (Dashboard)
 ```
 
 ---
@@ -56,7 +50,6 @@ SteamFullMarket/
 │   │   └── steam_pipeline.py     # Kaggle → GCS → BigQuery
 │   ├── docker-compose.yml
 │   ├── .env.example
-│   └── logs/
 ├── dbt/
 │   ├── models/
 │   │   ├── staging/
@@ -222,5 +215,6 @@ dbt test
 
 - 239,664 Steam applications collected via official Steam Web API
 - Collection period: August–September 2025
-- Tables used: `applications`, `genres`, `application_genres`, `categories`, `application_categories`, `publishers`, `application_publishers`, `developers`, `application_developers`
+- Tables ingested: `applications`, `genres`, `application_genres`, `categories`, `application_categories`, `publishers`, `application_publishers`, `developers`, `application_developers`
+- Tables transformed by dbt: `applications`, `genres`, `application_genres`, `publishers`, `application_publishers`
 - License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
